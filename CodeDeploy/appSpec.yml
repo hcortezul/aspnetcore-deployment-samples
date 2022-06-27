@@ -1,21 +1,21 @@
 version: 0.0
 os: windows
 files:
-  - source: .\app
+  - source: /app
     destination: c:\AppServer
 hooks:
   BeforeInstall:
-    - location: ./scripts/InstallDotNet.ps1
+    - location: scripts/InstallDotNet.ps1
       timeout: 300
   ApplicationStop: 
-    - location: ./scripts/StopService.ps1
+    - location: scripts/StopService.ps1
       timeout: 60
   AfterInstall: 
-    - location: ./scripts/RegisterService.ps1
+    - location: scripts/RegisterService.ps1
       timeout: 120
   ApplicationStart: 
-    - location: ./scripts/StartService.ps1
+    - location: scripts/StartService.ps1
       timeout: 60
   ValidateService: 
-    - location: ./scripts/SmokeTest.ps1
+    - location: scripts/SmokeTest.ps1
       timeout: 60
